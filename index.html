@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kaye Tinaya Macajelos - Resume Portfolio">
+    <title>Kaye Tinaya Macajelos | Resume Portfolio</title>
+
+    <style>
+        :root {
+            --dark-brown: #4B2E1F;
+            --brown: #B88A5A;
+            --beige: #F3E6D0;
+            --white: #FFFFFF;
+            --text-color: #4B2E1F;
+            --border-color: #D6BFA5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--white);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-wrap: break-word;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(92%, 1100px);
+            margin: 0 auto;
+        }
+
+        .site-header {
+            background: var(--dark-brown);
+            color: var(--white);
+            text-align: center;
+            padding: 38px 0;
+            border-bottom: 6px solid var(--brown);
+        }
+
+        .site-header h1 {
+            font-size: clamp(22px, 4vw, 32px);
+            margin-bottom: 5px;
+        }
+
+        .site-header p {
+            color: var(--beige);
+        }
+
+        .profile-container {
+            text-align: center;
+            margin: 28px auto;
+        }
+
+        .profile-picture {
+            width: clamp(110px, 20vw, 155px);
+            height: clamp(110px, 20vw, 155px);
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--brown);
+            box-shadow: 0 5px 18px rgba(75, 46, 31, 0.18);
+        }
+
+        .navbar {
+            background: var(--white);
+            border-bottom: 2px solid var(--beige);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px 22px;
+            padding: 15px 0;
+        }
+
+        .nav-links a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            padding: 4px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--brown);
+            text-decoration: underline;
+        }
+
+        .page-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(220px, 1fr);
+            align-items: start;
+            gap: 25px;
+            width: min(94%, 1400px);
+            margin: 25px auto;
+        }
+
+        .page-layout main {
+            min-width: 0;
+            width: 100%;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .soft-bg,
+        .hero {
+            background: var(--beige);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 78px 20px;
+            border-top: 1px solid var(--brown);
+            border-bottom: 1px solid var(--brown);
+        }
+
+        .eyebrow {
+            color: var(--dark-brown);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .hero h2 {
+            color: var(--dark-brown);
+            font-size: clamp(26px, 5vw, 38px);
+            margin-bottom: 15px;
+        }
+
+        .hero h2 span {
+            color: var(--brown);
+        }
+
+        .hero-text {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            color: var(--text-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--dark-brown);
+            color: var(--white);
+            text-decoration: none;
+            padding: 11px 22px;
+            border: 2px solid var(--dark-brown);
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background: var(--white);
+            color: var(--dark-brown);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--dark-brown);
+            font-size: clamp(23px, 3.5vw, 29px);
+            margin-bottom: 30px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 65px;
+            height: 4px;
+            border-radius: 3px;
+            background: var(--brown);
+            margin: 9px auto 0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            min-width: 0;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--dark-brown);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 14px rgba(75, 46, 31, 0.07);
+        }
+
+        .card h3 {
+            color: var(--dark-brown);
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .card p {
+            margin-bottom: 10px;
+            color: var(--text-color);
+            overflow-wrap: anywhere;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-card {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-label {
+            color: var(--brown) !important;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .contact-card {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-card a {
+            color: var(--dark-brown);
+            font-weight: bold;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-card a:hover {
+            color: var(--brown);
+        }
+
+        .portfolio-aside {
+            min-width: 0;
+            width: 100%;
+            background-color: var(--dark-brown);
+            color: var(--white);
+            padding: 20px;
+            border: 3px solid var(--brown);
+            border-radius: 10px;
+            overflow-wrap: anywhere;
+        }
+
+        .portfolio-aside h2 {
+            background-color: var(--beige);
+            color: var(--dark-brown);
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 22px;
+        }
+
+        .aside-card {
+            background-color: var(--brown);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--beige);
+            border-radius: 8px;
+        }
+
+        .aside-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .aside-card h3 {
+            color: var(--dark-brown);
+            background-color: var(--beige);
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .aside-card p,
+        .aside-card li {
+            color: var(--white);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .aside-card ul {
+            padding-left: 20px;
+        }
+
+        .aside-card li:hover {
+            color: var(--beige);
+        }
+
+        .site-footer {
+            background: var(--dark-brown);
+            color: var(--white);
+            text-align: center;
+            padding: 25px 15px;
+            border-top: 5px solid var(--brown);
+        }
+
+        .site-footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        /* Tablet and smaller screens */
+        @media (max-width: 900px) {
+            .page-layout {
+                grid-template-columns: 1fr;
+                width: 92%;
+            }
+
+            .portfolio-aside {
+                width: 100%;
+            }
+        }
+
+        /* Mobile screens */
+        @media (max-width: 600px) {
+            .site-header {
+                padding: 28px 0;
+            }
+
+            .nav-links {
+                gap: 6px 10px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 48px 16px;
+            }
+
+            .section-padding {
+                padding: 42px 0;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .portfolio-aside {
+                padding: 15px;
+            }
+        }
+
+        /* Very narrow screens and high zoom */
+        @media (max-width: 350px) {
+            .nav-links {
+                flex-direction: column;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                max-width: 100%;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header" id="home">
+        <div class="container">
+            <h1>Kaye Tinaya Macajelos</h1>
+            <p>Resume Portfolio | Web Development</p>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <!-- Keep profile.jpg in the same folder as this index.html file. -->
+        <img src="profile.jpg" alt="My Profile Picture" class="profile-picture">
+    </div>
+
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-layout">
+        <main>
+
+            <section class="hero section-padding">
+                <div class="container">
+                    <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
+                    <h2>Hello, I'm <span>Kaye</span>!</h2>
+                    <p class="hero-text">
+                        Welcome to my personal resume portfolio.
+                        I am a student who enjoys learning new things,
+                        developing computer skills, and creating simple
+                        and useful websites. This portfolio shares my
+                        background, personal skills, and school projects.
+                    </p>
+                    <a class="btn" href="#about">Learn More About Me</a>
+                </div>
+            </section>
+
+            <section class="section-padding" id="about">
+                <div class="container">
+                    <h2 class="section-title">About Me</h2>
+                    <article class="card about-card">
+                        <h3>Personal Information</h3>
+                        <p><strong>Name:</strong> Kaye Tinaya Macajelos</p>
+                        <p>
+                            <strong>Course:</strong>
+                            BSIT – Bachelor of Science in Information Technology
+                        </p>
+                        <p>
+                            <strong>School:</strong>
+                            Negros Oriental State University – Siaton Campus
+                        </p>
+                        <p>
+                            I am a student who enjoys learning new things,
+                            especially about computers and technology.
+                            I am hardworking, willing to learn, and always
+                            try my best in my studies. I enjoy working on
+                            school projects and learning new skills. I like
+                            spending time with my friends and discovering
+                            new things. When I face challenges, I try to
+                            learn from my mistakes and do better next time.
+                            My goal is to improve myself, gain more
+                            knowledge, and achieve my dreams.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section-padding soft-bg" id="skills">
+                <div class="container">
+                    <h2 class="section-title">My Personal Skills</h2>
+                    <div class="card-grid">
+                        <article class="card">
+                            <h3>Communication</h3>
+                            <p>
+                                I share my ideas clearly, listen to other
+                                people's opinions, and try to understand
+                                what others are saying.
+                            </p>
+                        </article>
+
+                        <article class="card">
+                            <h3>Teamwork</h3>
+                            <p>
+                                I work with my classmates, share ideas,
+                                and help one another complete our tasks
+                                and projects.
+                            </p>
+                        </article>
+
+                        <article class="card">
+                            <h3>Cooperation</h3>
+                            <p>
+                                I cooperate by being helpful, respectful,
+                                and willing to work together toward
+                                a common goal.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-padding" id="projects">
+                <div class="container">
+                    <h2 class="section-title">My Projects</h2>
+                    <div class="card-grid">
+                        <article class="card project-card">
+                            <p class="project-label">PROJECT 1</p>
+                            <h3>Personal Portfolio Website</h3>
+                            <p>
+                                A simple website created using HTML and CSS
+                                to introduce myself, display my skills,
+                                and share my contact details.
+                            </p>
+                        </article>
+
+                        <article class="card project-card">
+                            <p class="project-label">PROJECT 2</p>
+                            <h3>School Report</h3>
+                            <p>
+                                A written report about a school topic that
+                                helped me improve my ideas and knowledge
+                                and develop my research, writing, and
+                                critical-thinking skills.
+                            </p>
+                        </article>
+
+                        <article class="card project-card">
+                            <p class="project-label">PROJECT 3</p>
+                            <h3>Short Film</h3>
+                            <p>
+                                A school project that helped me develop
+                                creativity, teamwork, and communication
+                                skills and learn to tell a story through video.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-padding soft-bg" id="contact">
+                <div class="container">
+                    <h2 class="section-title">Contact Me</h2>
+                    <div class="card contact-card">
+                        <p>
+                            Thank you for visiting my portfolio!
+                            Feel free to contact me using the information below.
+                        </p>
+                        <p>
+                            <strong>Email:</strong>
+                            <a href="mailto:macajeloskaye@gmail.com">
+                                macajeloskaye@gmail.com
+                            </a>
+                        </p>
+                        <p><strong>Phone:</strong> 09949978102</p>
+                        <p>
+                            <strong>Location:</strong>
+                            Siaton, Negros Oriental, Philippines
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <aside class="portfolio-aside">
+            <h2>My Information</h2>
+
+            <div class="aside-card">
+                <h3>My Goal</h3>
+                <p>
+                    My goal in life is to finish my studies, graduate with a
+                    degree in Information Technology, and find a good job.
+                    I want to improve my skills and knowledge, support my
+                    family, and become a successful and responsible person.
+                    I will work hard, stay determined, and never give up
+                    on my dreams.
+                </p>
+            </div>
+
+            <div class="aside-card">
+                <h3>My Hobbies</h3>
+                <ul>
+                    <li>Watching Movies</li>
+                    <li>Listening to Music</li>
+                    <li>Playing Pickleball</li>
+                    <li>Eating</li>
+                    <li>Spending Time with Friends</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Kaye Macajelos. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
